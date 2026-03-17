@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingatlanok keresése - Eladó Ingatlanok</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigáció -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i data-lucide="home" class="d-inline-block me-2"></i>
+                Eladó Ingatlanok
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Kezdőlap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="ingatlanok.html">Ingatlanok</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="uj-ingatlan.html">Hirdetés feladása</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rolunk.html">Rólunk</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Keresési szekció -->
+    <section class="bg-light py-5 border-bottom">
+        <div class="container">
+            <h1 class="fw-bold mb-4 text-primary">Ingatlanok keresése</h1>
+            
+            <!-- Szűrők -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-3">
+                    <label class="form-label fw-bold">Település</label>
+                    <input type="text" id="search-telepules" class="form-control" placeholder="Pl.: Budapest">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label fw-bold">Típus</label>
+                    <select id="search-tipus" class="form-select">
+                        <option value="">Mind</option>
+                        <option value="ház">Családi ház</option>
+                        <option value="lakás">Lakás</option>
+                        <option value="telek">Telek</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label fw-bold">Max. ár (Ft)</label>
+                    <input type="number" id="search-ar" class="form-control" placeholder="Pl.: 50000000">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label fw-bold">Min. szobák</label>
+                    <input type="number" id="search-szobak" class="form-control" placeholder="Pl.: 3">
+                </div>
+                <div class="col-md-3 d-flex align-items-end gap-2">
+                    <button class="btn btn-primary w-100" onclick="kereses()">
+                        <i data-lucide="search" class="me-1"></i> Keresés
+                    </button>
+                    <button class="btn btn-outline-secondary" onclick="szuresReset()" title="Szűrők törlése">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Rendezés és statisztika -->
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div class="d-flex gap-2 align-items-center">
+                    <span class="text-muted">Rendezés:</span>
+                    <select id="rendezes" class="form-select form-select-sm w-auto" onchange="rendezesValtas()">
+                        <option value="ar-novekvo">Ár szerint növekvő</option>
+                        <option value="ar-csokkeno">Ár szerint csökkenő</option>
+                        <option value="terulet-novekvo">Méret szerint növekvő</option>
+                        <option value="terulet-csokkeno">Méret szerint csökkenő</option>
+                        <option value="datum">Dátum szerint</option>
+                    </select>
+                </div>
+                <span class="text-muted">Találatok: <strong id="talalat-szam">0</strong> db</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eredmények -->
+    <section class="py-5">
+        <div class="container">
+            <div id="ingatlan-lista" class="row g-4">
+                <!-- JavaScript tölti fel -->
+            </div>
+            
+            <!-- Üres állapot -->
+            <div id="nincs-talalat" class="text-center py-5 d-none">
+                <i data-lucide="home-x" class="display-1 text-muted mb-3"></i>
+                <h3>Nincs találat</h3>
+                <p class="text-muted">Módosítsa a keresési feltételeket vagy adjon fel új hirdetést.</p>
+                <a href="uj-ingatlan.html" class="btn btn-primary">Hirdetés feladása</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Törlés modal -->
+    <div class="modal fade" id="torlesModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Hirdetés törlése</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Biztosan törölni szeretné ezt az ingatlant?</p>
+                    <p class="fw-bold text-danger" id="torles-nev"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mégse</button>
+                    <button type="button" class="btn btn-danger" onclick="torlesMegerosites()">Törlés</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="fw-bold">Eladó Ingatlanok</h5>
+                    <p class="mb-0">Az Ön megbízható ingatlanpartnere 2015 óta.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">&copy; 2024 Eladó Ingatlanok. Minden jog fenntartva.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/main.js"></script>
+    <script>
+        let aktualisIngatlanok = [];
+        let torlendoId = null;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            lucide.createIcons();
+            await betoltes();
+        });
+
+        async function betoltes() {
+            aktualisIngatlanok = await ingatlanService.getAll();
+            megjelenites(aktualisIngatlanok);
+        }
+
+        function megjelenites(ingatlanok) {
+            const container = document.getElementById('ingatlan-lista');
+            const nincsTalalat = document.getElementById('nincs-talalat');
+            
+            document.getElementById('talalat-szam').textContent = ingatlanok.length;
+            
+            if (ingatlanok.length === 0) {
+                container.innerHTML = '';
+                nincsTalalat.classList.remove('d-none');
+            } else {
+                nincsTalalat.classList.add('d-none');
+                container.innerHTML = ingatlanok.map(ingatlan => ingatlanCardTemplate(ingatlan, true)).join('');
+            }
+            
+            lucide.createIcons();
+        }
+
+        function kereses() {
+            const telepules = document.getElementById('search-telepules').value.toLowerCase();
+            const tipus = document.getElementById('search-tipus').value;
+            const maxAr = parseInt(document.getElementById('search-ar').value) || Infinity;
+            const minSzobak = parseInt(document.getElementById('search-szobak').value) || 0;
+
+            let szurt = aktualisIngatlanok.filter(ing => {
+                const telepulesMatch = ing.telepules.toLowerCase().includes(telepules);
+                const tipusMatch = !tipus || ing.tipus === tipus;
+                const arMatch = ing.ar <= maxAr;
+                const szobaMatch = ing.szobak >= minSzobak;
+                
+                return telepulesMatch && tipusMatch && arMatch && szobaMatch;
+            });
+
+            megjelenites(szurt);
+        }
+
+        function szuresReset() {
+            document.getElementById('search-telepules').value = '';
+            document.getElementById('search-tipus').value = '';
+            document.getElementById('search-ar').value = '';
+            document.getElementById('search-szobak').value = '';
+            betoltes();
+        }
+
+        function rendezesValtas() {
+            const mod = document.getElementById('rendezes').value;
+            let rendezett = [...aktualisIngatlanok];
+
+            switch(mod) {
+                case 'ar-novekvo':
+                    rendezett.sort((a, b) => a.ar - b.ar);
+                    break;
+                case 'ar-csokkeno':
+                    rendezett.sort((a, b) => b.ar - a.ar);
+                    break;
+                case 'terulet-novekvo':
+                    rendezett.sort((a, b) => a.alapterulet - b.alapterulet);
+                    break;
+                case 'terulet-csokkeno':
+                    rendezett.sort((a, b) => b.alapterulet - a.alapterulet);
+                    break;
+                case 'datum':
+                    rendezett.sort((a, b) => new Date(b.datum) - new Date(a.datum));
+                    break;
+            }
+            
+            megjelenites(rendezett);
+        }
+
+        function torlesModal(id) {
+            torlendoId = id;
+            const ingatlan = aktualisIngatlanok.find(i => i.id === id);
+            document.getElementById('torles-nev').textContent = ingatlan.cim;
+            const modal = new bootstrap.Modal(document.getElementById('torlesModal'));
+            modal.show();
+        }
+
+        async function torlesMegerosites() {
+            if (torlendoId) {
+                await ingatlanService.delete(torlendoId);
+                bootstrap.Modal.getInstance(document.getElementById('torlesModal')).hide();
+                await betoltes();
+            }
+        }
+    </script>
+</body>
+</html>

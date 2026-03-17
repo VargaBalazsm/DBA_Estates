@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Új hirdetés feladása - Eladó Ingatlanok</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigáció -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i data-lucide="home" class="d-inline-block me-2"></i>
+                Eladó Ingatlanok
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Kezdőlap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ingatlanok.html">Ingatlanok</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="uj-ingatlan.html">Hirdetés feladása</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rolunk.html">Rólunk</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Form szekció -->
+    <section class="py-5 bg-light min-vh-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow border-0">
+                        <div class="card-header bg-primary text-white py-3">
+                            <h2 class="mb-0 fw-bold">Új ingatlan hirdetése</h2>
+                        </div>
+                        <div class="card-body p-4 p-md-5">
+                            <form id="ingatlan-form" novalidate>
+                                <!-- Alap adatok -->
+                                <div class="row g-3 mb-4">
+                                    <div class="col-12">
+                                        <label class="form-label fw-bold">Ingatlan címe *</label>
+                                        <input type="text" class="form-control" id="cim" required placeholder="Pl.: Kossuth Lajos utca 15.">
+                                        <div class="invalid-feedback">Kérjük adja meg az ingatlan címét!</div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Település *</label>
+                                        <input type="text" class="form-control" id="telepules" required placeholder="Pl.: Budapest">
+                                        <div class="invalid-feedback">Kérjük adja meg a települést!</div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label class="form-label fw-bold">Típus *</label>
+                                        <select class="form-select" id="tipus" required>
+                                            <option value="">Válasszon...</option>
+                                            <option value="ház">Családi ház</option>
+                                            <option value="lakás">Lakás</option>
+                                            <option value="telek">Telek</option>
+                                            <option value="ikerház">Ikerház</option>
+                                            <option value="sorház">Sorház</option>
+                                        </select>
+                                        <div class="invalid-feedback">Kérjük válasszon típust!</div>
+                                    </div>
+                                </div>
+
+                                <!-- Műszaki adatok -->
+                                <div class="row g-3 mb-4">
+                                    <div class="col-md-4">
+                                        <label class="form-label fw-bold">Alapterület (m²) *</label>
+                                        <input type="number" class="form-control" id="alapterulet" required min="1" placeholder="Pl.: 120">
+                                        <div class="invalid-feedback">Érvényes méretet adjon meg!</div>
+                                    </div>
+                                    
+                                    <div class="col-md-4">
+                                        <label class="form-label fw-bold">Szobák száma *</label>
+                                        <input type="number" class="form-control" id="szobak" required min="1" placeholder="Pl.: 4">
+                                        <div class="invalid-feedback">Adja meg a szobák számát!</div>
+                                    </div>
+                                    
+                                    <div class="col-md-4">
+                                        <label class="form-label fw-bold">Ár (Ft) *</label>
+                                        <input type="number" class="form-control" id="ar" required min="1" placeholder="Pl.: 45000000">
+                                        <div class="invalid-feedback">Érvényes árat adjon meg!</div>
+                                    </div>
+                                </div>
+
+                                <!-- Leírás -->
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">Leírás</label>
+                                    <textarea class="form-control" id="leiras" rows="4" placeholder="Írja le részletesen az ingatlan jellemzőit, környezetét..."></textarea>
+                                </div>
+
+                                <!-- Kép -->
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">Kép URL</label>
+                                    <input type="url" class="form-control" id="kep" placeholder="https://static.photos/nature/640x360/1">
+                                    <div class="form-text">Ha üresen hagyja, automatikus kép lesz hozzárendelve.</div>
+                                </div>
+
+                                <!-- Beküldés -->
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button type="reset" class="btn btn-outline-secondary btn-lg">Űrlap törlése</button>
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i data-lucide="save" class="me-2"></i>
+                                        Hirdetés mentése
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sikeres mentés modal -->
+    <div class="modal fade" id="sikerModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center p-5">
+                    <i data-lucide="check-circle" class="display-1 text-success mb-3"></i>
+                    <h3 class="fw-bold mb-3">Sikeres hirdetésfeladás!</h3>
+                    <p class="text-muted mb-4">Az ingatlanát sikeresen rögzítettük. A hirdetés azonnal megjelenik a keresési listában.</p>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <a href="ingatlanok.html" class="btn btn-primary">Hirdetések megtekintése</a>
+                        <a href="uj-ingatlan.html" class="btn btn-outline-primary">Új hirdetés</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="fw-bold">Eladó Ingatlanok</h5>
+                    <p class="mb-0">Az Ön megbízható ingatlanpartnere 2015 óta.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">&copy; 2024 Eladó Ingatlanok. Minden jog fenntartva.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            
+            const form = document.getElementById('ingatlan-form');
+            
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                if (!form.checkValidity()) {
+                    e.stopPropagation();
+                    form.classList.add('was-validated');
+                    return;
+                }
+
+                const ingatlan = {
+                    cim: document.getElementById('cim').value,
+                    telepules: document.getElementById('telepules').value,
+                    tipus: document.getElementById('tipus').value,
+                    alapterulet: parseInt(document.getElementById('alapterulet').value),
+                    szobak: parseInt(document.getElementById('szobak').value),
+                    ar: parseInt(document.getElementById('ar').value),
+                    leiras: document.getElementById('leiras').value,
+                    kep: document.getElementById('kep').value || `http://static.photos/house/640x360/${Math.floor(Math.random() * 100)}`,
+                    datum: new Date().toISOString()
+                };
+
+                try {
+                    await ingatlanService.create(ingatlan);
+                    
+                    // Modal megjelenítése
+                    const modal = new bootstrap.Modal(document.getElementById('sikerModal'));
+                    modal.show();
+                    
+                    // Form reset
+                    form.reset();
+                    form.classList.remove('was-validated');
+                } catch (error) {
+                    alert('Hiba történt a mentés során: ' + error.message);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

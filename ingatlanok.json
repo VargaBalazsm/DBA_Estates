@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "cim": "Kossuth Lajos utca 15.",
+        "telepules": "Budapest",
+        "tipus": "lakás",
+        "alapterulet": 85,
+        "szobak": 3,
+        "ar": 45000000,
+        "leiras": "Felújított, napfényes lakás a belváros szívében. Kiváló közlekedés, közel a metróhoz.",
+        "kep": "http://static.photos/apartment/640x360/1",
+        "datum": "2024-01-15"
+    },
+    {
+        "id": 2,
+        "cim": "Petőfi Sándor utca 8.",
+        "telepules": "Debrecen",
+        "tipus": "ház",
+        "alapterulet": 120,
+        "szobak": 4,
+        "ar": 65000000,
+        "leiras": "Családi ház nagy kerttel, csendes környezetben. Új nyílászárók, modern fűtésrendszer.",
+        "kep": "http://static.photos/house/640x360/2",
+        "datum": "2024-02-20"
+    },
+    {
+        "id": 3,
+        "cim": "Széchenyi tér 3.",
+        "telepules": "Szeged",
+        "tipus": "lakás",
+        "alapterulet": 65,
+        "szobak": 2,
+        "ar": 28000000,
+        "leiras": "Első emeleti, erkélyes lakás a városközpontban. Ideális befektetés vagy fiatal pároknak.",
+        "kep": "http://static.photos/apartment/640x360/3",
+        "datum": "2024-03-10"
+    },
+    {
+        "id": 4,
+        "cim": "Rákóczi út 45.",
+        "telepules": "Győr",
+        "tipus": "ház",
+        "alapterulet": 150,
+        "szobak": 5,
+        "ar": 89000000,
+        "leiras": "Kétszintes családi ház dupla garázzsal és medencével. Luxus kivitelezés, prémium anyagok.",
+        "kep": "http://static.photos/house/640x360/4",
+        "datum": "2024-01-05"
+    },
+    {
+        "id": 5,
+        "cim": "Ady Endre utca 12.",
+        "telepules": "Pécs",
+        "tipus": "telek",
+        "alapterulet": 800,
+        "szobak": 0,
+        "ar": 12000000,
+        "leiras": "Szép fekvésű építési telek panorámás kilátással. Minden közmű az utcában.",
+        "kep": "http://static.photos/nature/640x360/5",
+        "datum": "2024-02-28"
+    },
+    {
+        "id": 6,
+        "cim": "Bajcsy-Zsilinszky út 78.",
+        "telepules": "Budapest",
+        "tipus": "lakás",
+        "alapterulet": 95,
+        "szobak": 3,
+        "ar": 72000000,
+        "leiras": "Tetőtéri lakás terasszal és panorámás kilátással. Exkluzív környék, jó közlekedés.",
+        "kep": "http://static.photos/apartment/640x360/6",
+        "datum": "2024-03-15"
+    }
+]

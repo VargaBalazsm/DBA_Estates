@@ -1,17 +1,164 @@
 <!DOCTYPE html>
 <html lang="hu">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-  <title>DBA Estate</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eladó Ingatlanok - Kezdőlap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    
+    <!-- Navigáció -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i data-lucide="home" class="d-inline-block me-2"></i>
+                Eladó Ingatlanok
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Kezdőlap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ingatlanok.html">Ingatlanok</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="uj-ingatlan.html">Hirdetés feladása</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rolunk.html">Rólunk</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-white text-center d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">Találja meg álmai otthonát</h1>
+                    <p class="lead mb-4">Több száz hirdetés közül válogathat modern lakások és családi házak közül. Nálunk egyszerű az ingatlankeresés és -eladás.</p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="ingatlanok.html" class="btn btn-light btn-lg fw-bold">Böngésszen most</a>
+                        <a href="uj-ingatlan.html" class="btn btn-outline-light btn-lg">Hirdetés feladása</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Szolgáltatások -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold text-primary">Miért válasszon minket?</h2>
+            <div class="row g-4">
+                <div class="col-md-4 text-center">
+                    <div class="feature-box p-4 bg-white rounded-4 shadow-sm h-100">
+                        <i data-lucide="search" class="feature-icon mb-3"></i>
+                        <h4 class="fw-bold mb-3">Intelligens keresés</h4>
+                        <p class="text-muted">Szűrjön ár, méret, település vagy szobaszám alapján. Találja meg percek alatt az ideális ingatlant.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="feature-box p-4 bg-white rounded-4 shadow-sm h-100">
+                        <i data-lucide="shield-check" class="feature-icon mb-3"></i>
+                        <h4 class="fw-bold mb-3">Ellenőrzött hirdetések</h4>
+                        <p class="text-muted">Minden hirdetést moderálunk, hogy csak valós, jogtisztán megvásárolható ingatlanok szerepeljenek.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="feature-box p-4 bg-white rounded-4 shadow-sm h-100">
+                        <i data-lucide="zap" class="feature-icon mb-3"></i>
+                        <h4 class="fw-bold mb-3">Gyors eladás</h4>
+                        <p class="text-muted">Ingyenesen adhat fel hirdetést és naponta több ezer érdeklődő tekintheti meg az ingatlanát.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kiemelt ingatlanok -->
+    <section class="py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold text-primary">Kiemelt ajánlatok</h2>
+                <a href="ingatlanok.html" class="btn btn-outline-primary">Összes ingatlan</a>
+            </div>
+            <div id="kiemelt-ingatlanok" class="row g-4">
+                <!-- JavaScript tölti fel -->
+                <div class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Betöltés...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statisztika -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md-3">
+                    <h3 class="display-4 fw-bold" id="stat-ingatlan">0</h3>
+                    <p>Aktív hirdetés</p>
+                </div>
+                <div class="col-md-3">
+                    <h3 class="display-4 fw-bold">150+</h3>
+                    <p>Eladott ingatlan</p>
+                </div>
+                <div class="col-md-3">
+                    <h3 class="display-4 fw-bold">98%</h3>
+                    <p>Elégedett ügyfél</p>
+                </div>
+                <div class="col-md-3">
+                    <h3 class="display-4 fw-bold">24</h3>
+                    <p>Órás ügyfélszolgálat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lábléc -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="fw-bold">Eladó Ingatlanok</h5>
+                    <p class="mb-0">Az Ön megbízható ingatlanpartnere 2015 óta.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">&copy; 2024 Eladó Ingatlanok. Minden jog fenntartva.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Kiemelt ingatlanok betöltése
+        document.addEventListener('DOMContentLoaded', async () => {
+            lucide.createIcons();
+            const ingatlanok = await ingatlanService.getAll();
+            const kiemelt = ingatlanok.slice(0, 3); // Első 3 ingatlan
+            
+            const container = document.getElementById('kiemelt-ingatlanok');
+            container.innerHTML = kiemelt.map(ingatlan => ingatlanCardTemplate(ingatlan)).join('');
+            
+            document.getElementById('stat-ingatlan').textContent = ingatlanok.length;
+            lucide.createIcons();
+        });
+    </script>
 </body>
 </html>
