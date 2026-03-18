@@ -20,7 +20,7 @@
         "szobak": 4,
         "ar": 65000000,
         "leiras": "Családi ház nagy kerttel, csendes környezetben. Új nyílászárók, modern fűtésrendszer.",
-        "kep": "http://static.photos/house/640x360/2",
+        "kep": "img/haz2.jpg",
         "datum": "2025-02-20"
     },
     {
@@ -32,7 +32,7 @@
         "szobak": 2,
         "ar": 28000000,
         "leiras": "Első emeleti, erkélyes lakás a városközpontban. Ideális befektetés vagy fiatal pároknak.",
-        "kep": "http://static.photos/apartment/640x360/3",
+        "kep": "img/haz3.jpg",
         "datum": "2025-03-10"
     },
     {

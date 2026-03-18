@@ -14,7 +14,7 @@
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
                 <i data-lucide="home" class="d-inline-block me-2"></i>
-                Eladó Ingatlanok
+                DBA Estates
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -160,50 +160,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="js/ingatlanService.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-            
-            const form = document.getElementById('ingatlan-form');
-            
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                if (!form.checkValidity()) {
-                    e.stopPropagation();
-                    form.classList.add('was-validated');
-                    return;
-                }
 
-                const ingatlan = {
-                    cim: document.getElementById('cim').value,
-                    telepules: document.getElementById('telepules').value,
-                    tipus: document.getElementById('tipus').value,
-                    alapterulet: parseInt(document.getElementById('alapterulet').value),
-                    szobak: parseInt(document.getElementById('szobak').value),
-                    ar: parseInt(document.getElementById('ar').value),
-                    leiras: document.getElementById('leiras').value,
-                    kep: document.getElementById('kep').value || `http://static.photos/house/640x360/${Math.floor(Math.random() * 100)}`,
-                    datum: new Date().toISOString()
-                };
-
-                try {
-                    await ingatlanService.create(ingatlan);
-                    
-                    // Modal megjelenítése
-                    const modal = new bootstrap.Modal(document.getElementById('sikerModal'));
-                    modal.show();
-                    
-                    // Form reset
-                    form.reset();
-                    form.classList.remove('was-validated');
-                } catch (error) {
-                    alert('Hiba történt a mentés során: ' + error.message);
-                }
-            });
-        });
-    </script>
 </body>
 </html>
