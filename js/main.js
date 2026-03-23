@@ -9,11 +9,17 @@ async function betoltes() {
     try {
         const response = await fetch('./db/ingatlanok.json');
         ingatlanok = await response.json();
-        megjelenites(ingatlanok);
+
+        if (document.getElementById("kiemelt-ingatlanok")) {
+            megjeleniteskiemelt(ingatlanok);
+        }
+
+        if (document.getElementById("ingatlan-lista")) {
+            megjelenites(ingatlanok); 
+        }
+
     } catch (error) {
         console.error("Hiba a betöltés során:", error);
-        const container = document.getElementById("ingatlan-lista");
-        if (container) container.innerHTML = '<p class="text-danger">Hiba az ingatlanok betöltésekor.</p>';
     }
 }
 
@@ -57,7 +63,34 @@ function megjelenites(lista) {
         container.appendChild(div);
     });
 }
+function megjeleniteskiemelt(lista) {
+    const kiemelt = document.getElementById("kiemelt-ingatlanok");
 
+    if (!kiemelt) return;
+
+    document.getElementById("talalat-szam").textContent = lista.length;
+
+    kiemelt.innerHTML = "";
+
+    lista.slice(0, 3).forEach(i => {
+        const div = document.createElement("div");
+        div.className = "col-md-4";
+
+        div.innerHTML = `
+            <div class="card ingatlan-card h-100">
+                <img src="${i.kep}" class="card-img-top" alt="${i.cim}">
+                <div class="card-body">
+                    <h5 class="card-title">${i.cim}</h5>
+                    <p class="text-muted mb-2">${i.telepules}</p>
+                    <div class="ar-badge fw-bold mb-2">${szamotTagol(i.ar)} Ft</div>
+                    <p class="card-text">${i.leiras ? (i.leiras.length>100 ? i.leiras.substring(0,100)+'...' : i.leiras) : ''}</p>
+                </div>
+            </div>
+        `;
+
+        kiemelt.appendChild(div);
+    });
+}
 function kereses() {
     const telepules = document.getElementById("search-telepules").value.toLowerCase();
     const tipus = document.getElementById("search-tipus").value;
@@ -112,7 +145,10 @@ function torles() {
     megjelenites(ingatlanok);
     torlendoId = null;
 }
-
+function ujhirdetes() {
+    const mentes = document.getElementById("mentes");
+    
+}
 document.addEventListener("DOMContentLoaded", () => {
     betoltes();
 });

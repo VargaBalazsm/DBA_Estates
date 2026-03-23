@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+w<!DOCTYPE html>
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigáció -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">
@@ -22,23 +21,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Kezdőlap</a>
+                        <a class="nav-link" href="index.html"><i data-lucide="home"></i> Kezdőlap</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ingatlanok.html">Ingatlanok</a>
+                        <a class="nav-link" href="ingatlanok.html"><i data-lucide="store"></i> Ingatlanok</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="uj-ingatlan.html">Hirdetés feladása</a>
+                        <a class="nav-link active" href="uj-ingatlan.html"><i data-lucide="house-plus"></i> Hirdetés feladása</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="rolunk.html">Rólunk</a>
+                        <a class="nav-link" href="rolunk.html"><i data-lucide="user-round"></i> Rólunk</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Form szekció -->
     <section class="py-5 bg-light min-vh-100">
         <div class="container">
             <div class="row justify-content-center">
@@ -49,7 +47,6 @@
                         </div>
                         <div class="card-body p-4 p-md-5">
                             <form id="ingatlan-form" novalidate>
-                                <!-- Alap adatok -->
                                 <div class="row g-3 mb-4">
                                     <div class="col-12">
                                         <label class="form-label fw-bold">Ingatlan címe *</label>
@@ -77,7 +74,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Műszaki adatok -->
                                 <div class="row g-3 mb-4">
                                     <div class="col-md-4">
                                         <label class="form-label fw-bold">Alapterület (m²) *</label>
@@ -98,20 +94,17 @@
                                     </div>
                                 </div>
 
-                                <!-- Leírás -->
                                 <div class="mb-4">
                                     <label class="form-label fw-bold">Leírás</label>
                                     <textarea class="form-control" id="leiras" rows="4" placeholder="Írja le részletesen az ingatlan jellemzőit, környezetét..."></textarea>
                                 </div>
 
-                                <!-- Kép -->
                                 <div class="mb-4">
                                     <label class="form-label fw-bold">Kép URL</label>
                                     <input type="url" class="form-control" id="kep" placeholder="https://static.photos/nature/640x360/1">
                                     <div class="form-text">Ha üresen hagyja, automatikus kép lesz hozzárendelve.</div>
                                 </div>
 
-                                <!-- Beküldés -->
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <button type="reset" class="btn btn-outline-secondary btn-lg">Űrlap törlése</button>
                                     <button type="submit" class="btn btn-primary btn-lg">
@@ -127,7 +120,6 @@
         </div>
     </section>
 
-    <!-- Sikeres mentés modal -->
     <div class="modal fade" id="sikerModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -148,11 +140,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5 class="fw-bold">Eladó Ingatlanok</h5>
+                    <h5 class="fw-bold">DBA Estates</h5>
                     <p class="mb-0">Az Ön megbízható ingatlanpartnere 2015 óta.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="mb-0">&copy; 2024 Eladó Ingatlanok. Minden jog fenntartva.</p>
+                    <p class="mb-0">&copy; 2026 DBA Estates Minden jog fenntartva.</p>
                 </div>
             </div>
         </div>
@@ -161,6 +153,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="js/main.js"></script>
-
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
