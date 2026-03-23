@@ -8,7 +8,11 @@ function szamotTagol(szam) {
 async function betoltes() {
     try {
         const response = await fetch('./db/ingatlanok.json');
-        ingatlanok = await response.json();
+        let alap = await response.json();
+
+        let tarolt = JSON.parse(localStorage.getItem("ingatlanok")) || [];
+
+        ingatlanok = [...alap, ...tarolt];
 
         if (document.getElementById("kiemelt-ingatlanok")) {
             megjeleniteskiemelt(ingatlanok);
@@ -19,7 +23,7 @@ async function betoltes() {
         }
 
     } catch (error) {
-        console.error("Hiba a betöltés során:", error);
+        console.error("Hiba:", error);
     }
 }
 
@@ -48,11 +52,11 @@ function megjelenites(lista) {
             <div class="card ingatlan-card h-100">
                 <div class="image-container position-relative">
                     <img src="${i.kep}" class="card-img-top" alt="${i.cim}">
-                    <span class="tipus-badge position-absolute top-0 start-0 bg-primary text-white px-2 py-1 m-2 rounded">${i.tipus.toUpperCase()}</span>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">${i.cim}</h5>
                     <p class="text-muted mb-2">${i.telepules}</p>
+                    <span class="tipus-badge">${i.tipus.toUpperCase()}</span>
                     <div class="ar-badge fw-bold mb-2">${szamotTagol(i.ar)} Ft</div>
                     <p class="card-text">${i.leiras ? (i.leiras.length>100 ? i.leiras.substring(0,100)+'...' : i.leiras) : ''}</p>
                     <button class="btn btn-danger btn-sm mt-2" onclick="torlesModal(${i.id})">Törlés</button>
@@ -145,10 +149,32 @@ function torles() {
     megjelenites(ingatlanok);
     torlendoId = null;
 }
-function ujhirdetes() {
-    const mentes = document.getElementById("mentes");
-    
-}
+document.getElementById("ingatlan-form")?.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const uj = {
+        id: Date.now(),
+        cim: document.getElementById("cim").value,
+        telepules: document.getElementById("telepules").value,
+        tipus: document.getElementById("tipus").value,
+        alapterulet: parseInt(document.getElementById("alapterulet").value),
+        szobak: parseInt(document.getElementById("szobak").value),
+        ar: parseInt(document.getElementById("ar").value),
+        leiras: document.getElementById("leiras").value,
+        kep: document.getElementById("kep").value || "https://via.placeholder.com/400x300",
+        datum: new Date().toISOString()
+    };
+
+    let tarolt = JSON.parse(localStorage.getItem("ingatlanok")) || [];
+    tarolt.push(uj);
+
+    localStorage.setItem("ingatlanok", JSON.stringify(tarolt));
+
+    const modal = new bootstrap.Modal(document.getElementById('sikerModal'));
+    modal.show();
+
+    this.reset();
+});
 document.addEventListener("DOMContentLoaded", () => {
     betoltes();
 });
