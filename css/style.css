@@ -203,6 +203,147 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .spinner-border {
-    width: 48px;
-    height: 48px;
+    width: 3rem;
+    height: 3rem;
+}
+
+
+.footer {
+  background: linear-gradient(180deg, #1e3a5f, #0f1f33);
+  color: #eaeaea;
+  padding: 60px 0 20px;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+/* TOP GRID */
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-col h3,
+.footer-col h4 {
+  margin-bottom: 15px;
+}
+
+.footer-col p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* LINKS */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col a {
+  color: #eaeaea;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-col a:hover {
+  color: #1e73e8;
+  padding-left: 5px;
+}
+
+/* IGSTB */
+.socials a {
+  margin-right: 10px;
+  font-size: 14px;
+  background: #1e73e8;
+  padding: 6px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* BUTTTTTTON */
+.contact-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background: #1e73e8;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.contact-btn:hover {
+  background: #1558b0;
+}
+
+/* HIRLEVEVEVEVl */
+.newsletter {
+  border-top: 1px solid #2e3f50;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.newsletter h4 {
+  margin-bottom: 15px;
+}
+
+.newsletter-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.newsletter input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 250px;
+}
+
+.newsletter button {
+  padding: 10px 15px;
+  background: #1e73e8;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.newsletter button:hover {
+  background: #1558b0;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-box {
+    flex-direction: column;
+  }
 }
