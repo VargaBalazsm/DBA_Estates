@@ -1,55 +1,42 @@
-/* === Általános stílusok === */
-:root {
-    --primary-color: #0056b3;
-    --secondary-color: #6c757d;
-    --success-color: #28a745;
-    --danger-color: #dc3545;
-    --light-bg: #f8f9fa;
-    --border-radius: 12px;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
-}
-
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
 }
 
-/* === Hero szekció === */
 .hero-section {
-    background: linear-gradient(135deg, rgba(0, 86, 179, 0.9), rgba(0, 123, 255, 0.8)), 
-                url('http://static.photos/cityscape/1200x630/1');
+    background-image: 
+        linear-gradient(rgba(0, 86, 179, 0.9), rgba(0, 123, 255, 0.8)),
+        url('http://static.photos/cityscape/1200x630/1');
     background-size: cover;
     background-position: center;
     min-height: 600px;
     position: relative;
 }
 
-/* === Kártya stílusok === */
 .ingatlan-card {
-    transition: var(--transition);
+    transition: 0.3s;
     border: none;
-    border-radius: var(--border-radius);
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     height: 100%;
 }
 
 .ingatlan-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 .ingatlan-card .card-img-top {
     height: 240px;
     object-fit: cover;
-    transition: var(--transition);
+    transition: 0.3s;
 }
 
 .ingatlan-card:hover .card-img-top {
@@ -57,181 +44,130 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ingatlan-card .card-body {
-    padding: 1.5rem;
+    padding: 24px;
     display: flex;
     flex-direction: column;
 }
 
 .ingatlan-card .card-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: black;
 }
 
 .ingatlan-card .card-text {
     color: #666;
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
+    font-size: 14px;
+    margin-bottom: 16px;
     flex-grow: 1;
 }
 
-/* === Címkék és badge-ek === */
 .tipus-badge {
     position: absolute;
     top: 15px;
     right: 15px;
     background: rgba(255, 255, 255, 0.95);
-    color: var(--primary-color);
-    padding: 5px 15px;
+    color: black;
+    padding: 10px 20px;
     border-radius: 20px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-size: 14px;
 }
 
 .ar-badge {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--success-color);
-    margin-bottom: 0.5rem;
+    font-size: 24px;
+    font-weight: bold;
+    color: #4ed16c;
+    margin-bottom: 8px;
 }
 
-/* === Tulajdonság ikonok === */
 .property-meta {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 16px;
+    margin-bottom: 16px;
     flex-wrap: wrap;
 }
 
 .property-meta-item {
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 5px;
     color: #666;
-    font-size: 0.9rem;
+    font-size: 14px;
 }
 
-.property-meta-item i {
-    width: 18px;
-    height: 18px;
-    color: var(--secondary-color);
-}
-
-/* === Gombok === */
 .btn {
     border-radius: 8px;
-    font-weight: 600;
-    padding: 0.5rem 1.5rem;
-    transition: var(--transition);
+    font-weight: bold;
+    padding: 8px 24px;
+    transition: 0.3s;
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+    background-color: black;
+    border: 1px solid black;
+    color: white;
 }
 
 .btn-primary:hover {
     background-color: #004494;
-    border-color: #004494;
-    transform: translateY(-1px);
 }
 
 .btn-danger {
-    background-color: var(--danger-color);
-    border-color: var(--danger-color);
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+    color: white;
 }
 
-/* === Feature box === */
 .feature-box {
-    transition: var(--transition);
+    transition: 0.3s;
 }
 
 .feature-box:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
 }
 
-.feature-icon {
-    width: 48px;
-    height: 48px;
-    color: var(--primary-color);
-    stroke-width: 1.5;
-}
-
-/* === Űrlapok === */
 .form-control, .form-select {
     border-radius: 8px;
     border: 1px solid #ddd;
-    padding: 0.75rem 1rem;
+    padding: 12px;
 }
 
 .form-control:focus, .form-select:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.25);
+    border-color: black;
 }
 
-.form-label {
-    color: #555;
-    margin-bottom: 0.5rem;
-}
-
-/* === Navigáció === */
 .navbar {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .navbar-brand {
-    font-size: 1.5rem;
+    font-size: 24px;
 }
 
 .nav-link {
-    font-weight: 600;
-    margin: 0 0.2rem;
-    border-radius: 6px;
-    transition: var(--transition);
+    font-weight: bold;
+    margin: 0 5px;
 }
 
-.nav-link:hover, .nav-link.active {
-    background-color: rgba(255, 255, 255, 0.1);
+.nav-link:hover {
+    background-color: rgba(255,255,255,0.1);
 }
 
-/* === Reszponzív módosítások === */
 @media (max-width: 768px) {
     .hero-section {
         min-height: 400px;
-        padding: 2rem 0;
     }
-    
+
     .hero-section h1 {
-        font-size: 2rem;
+        font-size: 32px;
     }
-    
+
     .ingatlan-card .card-img-top {
         height: 200px;
     }
-    
-    .ar-badge {
-        font-size: 1.25rem;
-    }
-    
-    .property-meta {
-        gap: 0.5rem;
-    }
 }
 
-@media (max-width: 576px) {
-    .btn-lg {
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-    }
-    
-    .feature-box {
-        padding: 2rem 1rem !important;
-    }
-}
-
-/* === Animációk === */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -244,51 +180,170 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .ingatlan-card {
-    animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s;
 }
 
-/* === Kép konténer === */
 .image-container {
     position: relative;
     overflow: hidden;
     height: 240px;
 }
 
-/* === Törlés gomb a kártyán === */
-.delete-btn {
+   .delete-btn {
     position: absolute;
     top: 15px;
     left: 15px;
-    background: rgba(220, 53, 69, 0.9);
+    background: rgba(220,53,69,0.9);
     color: white;
     border: none;
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
-    transition: var(--transition);
-    z-index: 10;
 }
 
-.delete-btn:hover {
-    background: rgba(220, 53, 69, 1);
-    transform: scale(1.1);
-}
-
-/* === Spinner === */
 .spinner-border {
     width: 3rem;
     height: 3rem;
 }
 
 
+.footer {
+  background: linear-gradient(180deg, #1e3a5f, #0f1f33);
+  color: #eaeaea;
+  padding: 60px 0 20px;
+  font-family: Arial, sans-serif;
+}
 
+.container {
+  width: 90%;
+  margin: auto;
+}
 
+/* TOP GRID */
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
+}
 
+.footer-col h3,
+.footer-col h4 {
+  margin-bottom: 15px;
+}
 
+.footer-col p {
+  font-size: 14px;
+  line-height: 1.6;
+}
 
+/* LINKS */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
 
+.footer-col ul li {
+  margin-bottom: 8px;
+}
 
+.footer-col a {
+  color: #eaeaea;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.footer-col a:hover {
+  color: #1e73e8;
+  padding-left: 5px;
+}
+
+/* IGSTB */
+.socials a {
+  margin-right: 10px;
+  font-size: 14px;
+  background: #1e73e8;
+  padding: 6px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* BUTTTTTTON */
+.contact-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background: #1e73e8;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.contact-btn:hover {
+  background: #1558b0;
+}
+
+/* HIRLEVEVEVEVl */
+.newsletter {
+  border-top: 1px solid #2e3f50;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.newsletter h4 {
+  margin-bottom: 15px;
+}
+
+.newsletter-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.newsletter input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 250px;
+}
+
+.newsletter button {
+  padding: 10px 15px;
+  background: #1e73e8;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.newsletter button:hover {
+  background: #1558b0;
+}
+
+/* BOTTOM */
+.footer-bottom {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 13px;
+  color: #aaa;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-box {
+    flex-direction: column;
+  }
+}
