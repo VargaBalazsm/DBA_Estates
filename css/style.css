@@ -114,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-danger {
-    background-color: #dc3545;
+    background-color: #cc1023;
     border: 1px solid #dc3545;
     color: white;
 }
@@ -205,4 +205,10 @@ h1, h2, h3, h4, h5, h6 {
 .spinner-border {
     width: 48px;
     height: 48px;
+}
+.navbar{
+    background-color:#607D8B;
+}
+.szin{
+    background-color:  #607D8B;
 }
