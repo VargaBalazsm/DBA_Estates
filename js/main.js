@@ -229,7 +229,7 @@ function showModal() {
     }
 
     if (valid) {
-        var myModal = new bootstrap.Modal(document.getElementById('hirlapModal'));
+        const myModal = new bootstrap.Modal(document.getElementById('hirlapModal'));
         myModal.show();
 
         nev.value = "";
