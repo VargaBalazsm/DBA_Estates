@@ -44,7 +44,7 @@
         "szobak": 5,
         "ar": 89000000,
         "leiras": "Kétszintes családi ház dupla garázzsal és medencével. Luxus kivitelezés, prémium anyagok.",
-        "kep": "http://static.photos/house/640x360/4",
+        "kep": "img/ingatlan.jpg",
         "datum": "2025-01-05"
     },
     {
@@ -56,7 +56,7 @@
         "szobak": 0,
         "ar": 12000000,
         "leiras": "Szép fekvésű építési telek panorámás kilátással. Minden közmű az utcában.",
-        "kep": "http://static.photos/nature/640x360/5",
+        "kep": "img/ingatlan2.jpg",
         "datum": "2025-02-28"
     },
     {
@@ -68,7 +68,7 @@
         "szobak": 3,
         "ar": 72000000,
         "leiras": "Tetőtéri lakás terasszal és panorámás kilátással. Exkluzív környék, jó közlekedés.",
-        "kep": "http://static.photos/apartment/640x360/6",
+        "kep": "img/ingatlan3.jpg",
         "datum": "2026-03-15"
     },
     {
@@ -80,7 +80,7 @@
         "szobak": 2,
         "ar": 31000000,
         "leiras": "Jó állapotú lakás csendes környéken, közel boltokhoz és iskolákhoz.",
-        "kep": "http://static.photos/apartment/640x360/7",
+        "kep": "img/ingatlan4.jpg",
         "datum": "2025-01-25"
     },
     {
@@ -92,7 +92,7 @@
         "szobak": 4,
         "ar": 54000000,
         "leiras": "Felújított családi ház garázzsal és rendezett kerttel.",
-        "kep": "http://static.photos/house/640x360/8",
+        "kep": "img/ingatlan5.jpg",
         "datum": "2025-02-10"
     },
     {
@@ -104,7 +104,7 @@
         "szobak": 2,
         "ar": 39000000,
         "leiras": "Modern lakás egyetemistáknak ideális helyen.",
-        "kep": "http://static.photos/apartment/640x360/9",
+        "kep": "img/ingatlan6.jpg",
         "datum": "2025-03-01"
     },
     {
@@ -116,7 +116,7 @@
         "szobak": 2,
         "ar": 26000000,
         "leiras": "Fiatalos lakás alacsony rezsivel, kiváló elhelyezkedéssel.",
-        "kep": "http://static.photos/apartment/640x360/10",
+        "kep": "img/ingatlan7.jpg",
         "datum": "2025-01-18"
     },
     {
@@ -128,7 +128,7 @@
         "szobak": 5,
         "ar": 61000000,
         "leiras": "Tágas családi ház nagy nappalival és terasszal.",
-        "kep": "http://static.photos/house/640x360/11",
+        "kep": "img/ingatlan8.jpg",
         "datum": "2025-02-05"
     },
     {
@@ -140,7 +140,7 @@
         "szobak": 3,
         "ar": 42000000,
         "leiras": "Világos lakás liftes házban, belvárosi elhelyezkedéssel.",
-        "kep": "http://static.photos/apartment/640x360/12",
+        "kep": "img/ingatlan9.jpg",
         "datum": "2025-03-08"
     },
     {
@@ -152,7 +152,7 @@
         "szobak": 4,
         "ar": 67000000,
         "leiras": "Új építésű családi ház energiatakarékos megoldásokkal.",
-        "kep": "http://static.photos/house/640x360/13",
+        "kep": "img/ingatlan10.jpg",
         "datum": "2025-02-22"
     },
     {
@@ -164,7 +164,7 @@
         "szobak": 3,
         "ar": 35000000,
         "leiras": "Központi lakás kiváló infrastruktúrával.",
-        "kep": "http://static.photos/apartment/640x360/14",
+        "kep": "img/ingatlan11.jpg",
         "datum": "2025-01-30"
     },
     {
@@ -176,7 +176,7 @@
         "szobak": 4,
         "ar": 58000000,
         "leiras": "Hangulatos családi ház borvidék közelében.",
-        "kep": "http://static.photos/house/640x360/15",
+        "kep": "img/ingatlan12.jpg",
         "datum": "2025-03-03"
     },
     {
@@ -188,7 +188,7 @@
         "szobak": 2,
         "ar": 27000000,
         "leiras": "Felújított lakás parkra néző kilátással.",
-        "kep": "http://static.photos/apartment/640x360/16",
+        "kep": "img/ingatlan13.jpg",
         "datum": "2025-02-14"
     },
     {
@@ -200,7 +200,7 @@
         "szobak": 6,
         "ar": 95000000,
         "leiras": "Modern irodahelyiség kiváló megközelítéssel.",
-        "kep": "http://static.photos/office/640x360/17",
+        "kep": "img/ingatlan14.jpg",
         "datum": "2026-03-12"
     },
     {
@@ -212,7 +212,7 @@
         "szobak": 2,
         "ar": 24000000,
         "leiras": "Kis rezsijű lakás fiataloknak vagy befektetésnek.",
-        "kep": "http://static.photos/apartment/640x360/18",
+        "kep": "img/ingatlan15.jpg",
         "datum": "2025-01-22"
     },
     {
@@ -224,7 +224,7 @@
         "szobak": 3,
         "ar": 47000000,
         "leiras": "Tágas lakás a főtér közelében.",
-        "kep": "http://static.photos/apartment/640x360/19",
+        "kep": "img/ingatlan16.jpg",
         "datum": "2025-02-26"
     },
     {
@@ -236,7 +236,7 @@
         "szobak": 4,
         "ar": 72000000,
         "leiras": "Csendes utcában található családi ház nagy kerttel.",
-        "kep": "http://static.photos/house/640x360/20",
+        "kep": "img/ingatlan17.jpg",
         "datum": "2026-03-16"
     }
 ]
