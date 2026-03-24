@@ -7,12 +7,20 @@ function szamotTagol(szam) {
 
 async function betoltes() {
     try {
-        const response = await fetch('./db/ingatlanok.json');
-        let alap = await response.json();
-
         let tarolt = JSON.parse(localStorage.getItem("ingatlanok")) || [];
 
-        ingatlanok = [...alap, ...tarolt];
+        if (tarolt.length === 0) {
+            const response = await fetch('./db/ingatlanok.json');
+            let alap = await response.json();
+            
+            localStorage.setItem("ingatlanok", JSON.stringify(alap));
+
+            ingatlanok = alap; 
+        }
+        else 
+        {
+            ingatlanok = tarolt;
+        }
 
         if (document.getElementById("kiemelt-ingatlanok")) {
             megjeleniteskiemelt(ingatlanok);
@@ -58,7 +66,7 @@ function megjelenites(lista) {
                     <p class="text-muted mb-2">${i.telepules}</p>
                     <span class="tipus-badge">${i.tipus.toUpperCase()}</span>
                     <div class="ar-badge fw-bold mb-2">${szamotTagol(i.ar)} Ft</div>
-                    <p class="card-text">${i.leiras ? (i.leiras.length>100 ? i.leiras.substring(0,100)+'...' : i.leiras) : ''}</p>
+                    <p class="card-text">${i.leiras ? (i.leiras.length > 100 ? i.leiras.substring(0, 100) + '...' : i.leiras) : ''}</p>
                     <button class="btn btn-danger btn-sm mt-2" onclick="torlesModal(${i.id})">Törlés</button>
                 </div>
             </div>
@@ -134,22 +142,34 @@ function rendezesValtas() {
 }
 
 function torlesModal(id) {
-    torlendoId = id;
+    torlendoId = id;  
+
     const ingatlan = ingatlanok.find(i => i.id === id);
     if (!ingatlan) return;
 
-    const confirmDelete = confirm(`Biztosan törölni szeretné ezt az ingatlant?\n${ingatlan.cim}`);
-    if (confirmDelete) torles();
+    const torlesModalText = document.getElementById('torlesModalText');
+    torlesModalText.textContent = `Biztosan törölni szeretné ezt az ingatlant?\n${ingatlan.cim}`;
+
+    const modal = new bootstrap.Modal(document.getElementById('torlesModal'));
+    modal.show();
+
+    const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+    confirmDeleteBtn.onclick = function() {
+        torles();  
+        modal.hide();  
+    };
 }
 
 function torles() {
     if (torlendoId === null) return;
 
     ingatlanok = ingatlanok.filter(i => i.id !== torlendoId);
+    localStorage.setItem("ingatlanok", JSON.stringify(ingatlanok));  
+
     megjelenites(ingatlanok);
     torlendoId = null;
 }
-document.getElementById("ingatlan-form")?.addEventListener("submit", function(e) {
+document.getElementById("ingatlan-form")?.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const uj = {
@@ -175,6 +195,7 @@ document.getElementById("ingatlan-form")?.addEventListener("submit", function(e)
 
     this.reset();
 });
+
 document.addEventListener("DOMContentLoaded", () => {
     betoltes();
 });
