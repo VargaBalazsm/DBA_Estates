@@ -34,7 +34,10 @@ async function betoltes() {
         console.error("Hiba:", error);
     }
 }
-
+function formatDatum(datum) {
+    const d = new Date(datum);
+    return d.toLocaleDateString('hu-HU');
+}
 function megjelenites(lista) {
     const container = document.getElementById("ingatlan-lista");
     const nincs = document.getElementById("nincs-talalat");
@@ -67,6 +70,7 @@ function megjelenites(lista) {
                     <span class="tipus-badge">${i.tipus.toUpperCase()}</span>
                     <div class="ar-badge fw-bold mb-2">${szamotTagol(i.ar)} Ft</div>
                     <p class="card-text">${i.leiras ? (i.leiras.length > 100 ? i.leiras.substring(0, 100) + '...' : i.leiras) : ''}</p>
+                    <p class="text-muted small mb-0">Hozzáadva: ${formatDatum(i.datum)}</p>                
                     <button class="btn btn-danger btn-sm mt-2" onclick="torlesModal(${i.id})">Törlés</button>
                 </div>
             </div>
@@ -195,6 +199,44 @@ document.getElementById("ingatlan-form")?.addEventListener("submit", function (e
 
     this.reset();
 });
+function showModal() {
+    const nev = document.getElementById("nev");
+    const email = document.getElementById("email");
+    const uzenet = document.getElementById("uzenet");
+
+    let valid = true;
+
+    if (nev.value.trim() === "") {
+        document.getElementById("nevHiba").classList.remove("d-none");
+        valid = false;
+    } else {
+        document.getElementById("nevHiba").classList.add("d-none");
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value)) {
+        document.getElementById("emailHiba").classList.remove("d-none");
+        valid = false;
+    } else {
+        document.getElementById("emailHiba").classList.add("d-none");
+    }
+
+    if (uzenet.value.trim() === "") {
+        document.getElementById("uzenetHiba").classList.remove("d-none");
+        valid = false;
+    } else {
+        document.getElementById("uzenetHiba").classList.add("d-none");
+    }
+
+    if (valid) {
+        const myModal = new bootstrap.Modal(document.getElementById('hirlapModal'));
+        myModal.show();
+
+        nev.value = "";
+        email.value = "";
+        uzenet.value = "";
+    }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     betoltes();
