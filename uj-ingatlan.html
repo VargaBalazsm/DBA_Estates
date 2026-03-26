@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Új hirdetés feladása - Eladó Ingatlanok</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 </head>
+
 <body>
     <div id="navbar"></div>
 
@@ -25,16 +28,18 @@
                                 <div class="row g-3 mb-4">
                                     <div class="col-12">
                                         <label class="form-label fw-bold">Ingatlan címe *</label>
-                                        <input type="text" class="form-control" id="cim" required placeholder="Pl.: Kossuth Lajos utca 15.">
+                                        <input type="text" class="form-control" id="cim" required
+                                            placeholder="Pl.: Kossuth Lajos utca 15.">
                                         <div class="invalid-feedback">Kérjük adja meg az ingatlan címét!</div>
                                     </div>
-                                    
+
                                     <div class="col-md-6">
                                         <label class="form-label fw-bold">Település *</label>
-                                        <input type="text" class="form-control" id="telepules" required placeholder="Pl.: Budapest">
+                                        <input type="text" class="form-control" id="telepules" required
+                                            placeholder="Pl.: Budapest">
                                         <div class="invalid-feedback">Kérjük adja meg a települést!</div>
                                     </div>
-                                    
+
                                     <div class="col-md-6">
                                         <label class="form-label fw-bold">Típus *</label>
                                         <select class="form-select" id="tipus" required>
@@ -52,31 +57,36 @@
                                 <div class="row g-3 mb-4">
                                     <div class="col-md-4">
                                         <label class="form-label fw-bold">Alapterület (m²) *</label>
-                                        <input type="number" class="form-control" id="alapterulet" required min="1" placeholder="Pl.: 120">
+                                        <input type="number" class="form-control" id="alapterulet" required min="1"
+                                            placeholder="Pl.: 120">
                                         <div class="invalid-feedback">Érvényes méretet adjon meg!</div>
                                     </div>
-                                    
+
                                     <div class="col-md-4">
                                         <label class="form-label fw-bold">Szobák száma *</label>
-                                        <input type="number" class="form-control" id="szobak" required min="1" placeholder="Pl.: 4">
+                                        <input type="number" class="form-control" id="szobak" required min="1"
+                                            placeholder="Pl.: 4">
                                         <div class="invalid-feedback">Adja meg a szobák számát!</div>
                                     </div>
-                                    
+
                                     <div class="col-md-4">
                                         <label class="form-label fw-bold">Ár (Ft) *</label>
-                                        <input type="number" class="form-control" id="ar" required min="1" placeholder="Pl.: 45000000">
+                                        <input type="number" class="form-control" id="ar" required min="1"
+                                            placeholder="Pl.: 45000000">
                                         <div class="invalid-feedback">Érvényes árat adjon meg!</div>
                                     </div>
                                 </div>
 
                                 <div class="mb-4">
                                     <label class="form-label fw-bold">Leírás</label>
-                                    <textarea class="form-control" id="leiras" rows="4" placeholder="Írja le részletesen az ingatlan jellemzőit, környezetét..."></textarea>
+                                    <textarea class="form-control" id="leiras" rows="4"
+                                        placeholder="Írja le részletesen az ingatlan jellemzőit, környezetét..."></textarea>
                                 </div>
 
                                 <div class="mb-4">
                                     <label class="form-label fw-bold">Kép URL</label>
-                                    <input type="url" class="form-control" id="kep" placeholder="https://static.photos/nature/640x360/1">
+                                    <input type="url" class="form-control" id="kep"
+                                        placeholder="https://static.photos/nature/640x360/1">
                                     <div class="form-text">Ha üresen hagyja, automatikus kép lesz hozzárendelve.</div>
                                 </div>
 
@@ -101,7 +111,8 @@
                 <div class="modal-body text-center p-5">
                     <i data-lucide="check-circle" class="display-1 text-success mb-3"></i>
                     <h3 class="fw-bold mb-3">Sikeres hirdetésfeladás!</h3>
-                    <p class="text-muted mb-4">Az ingatlanát sikeresen rögzítettük. A hirdetés azonnal megjelenik a keresési listában.</p>
+                    <p class="text-muted mb-4">Az ingatlanát sikeresen rögzítettük. A hirdetés azonnal megjelenik a
+                        keresési listában.</p>
                     <div class="d-flex gap-2 justify-content-center">
                         <a href="ingatlanok.html" class="btn btn-primary">Hirdetések megtekintése</a>
                         <a href="uj-ingatlan.html" class="btn btn-outline-primary">Új hirdetés</a>
@@ -119,4 +130,5 @@
         lucide.createIcons();
     </script>
 </body>
+
 </html>
