@@ -4,7 +4,17 @@ let torlendoId = null;
 function szamotTagol(szam) {
     return szam.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
+fetch("navbar.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("navbar").innerHTML = data;
+  });
 
+fetch("footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
 async function betoltes() {
     try {
         let tarolt = JSON.parse(localStorage.getItem("ingatlanok")) || [];
